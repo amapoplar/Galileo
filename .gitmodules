@@ -4,3 +4,6 @@
 [submodule "Galileo/vendor/GLFW"]
 	path = Galileo/vendor/GLFW
 	url = https://github.com/TheCherno/glfw
+[submodule "Galileo/vendor/imgui"]
+	path = Galileo/vendor/imgui
+	url = https://github.com/TheCherno/imgui

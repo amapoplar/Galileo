@@ -14,8 +14,12 @@ workspace "Galileo"
 
     includeDirs = {}
     includeDirs["GLFW"]="Galileo/vendor/GLFW/include"
+    includeDirs["GLAD"]="Galileo/vendor/Glad/include"
+    includeDirs["ImGui"]="Galileo/vendor/imgui"
 
     include "Galileo/vendor/GLFW"
+    include "Galileo/vendor/Glad"
+    include "Galileo/vendor/imgui"
 
     project "Galileo"
 
@@ -37,11 +41,15 @@ workspace "Galileo"
         includedirs{
             "%{prj.name}/src",
             "%{prj.name}/vendor/spdlog/include",
-            "%{includeDirs.GLFW}"
+            "%{includeDirs.GLFW}",
+            "%{includeDirs.GLAD}",
+            "%{includeDirs.ImGui}"
         }
 
         links{
             "GLFW",
+            "Glad",
+            "ImGui",
             "opengl32.lib"
         }
 
@@ -52,7 +60,8 @@ workspace "Galileo"
 
             defines{
                 "GL_PLATFORM_WINDOWS",
-                "GL_BUILD_DLL"
+                "GL_BUILD_DLL",
+                "GLFW_INCLUDE_NONE"
             }
 
         	postbuildcommands{
@@ -62,14 +71,17 @@ workspace "Galileo"
 
         filter "configurations:Debug"
             defines "GL_DEBUG"
+            buildoptions "/MDd"
             symbols "On"
 
         filter "configurations:Release"
             defines "GL_RELEASE"
+            buildoptions "/MD"
             optimize "On"
 
         filter "configurations:Dist"
             defines "GL_DIST"
+            buildoptions "/MD"
             optimize "On"
 
 
@@ -105,12 +117,15 @@ workspace "Galileo"
     
         filter "configurations:Debug"
             defines "GL_DEBUG"
+            buildoptions "/MDd"
             symbols "On"
     
         filter "configurations:Release"
             defines "GL_RELEASE"
+            buildoptions "/MD"
             optimize "On"
     
         filter "configurations:Dist"
             defines "GL_DIST"
+            buildoptions "/MD"
             optimize "On"

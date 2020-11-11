@@ -2,7 +2,7 @@
 #include "Application.h"
 
 #include"Galileo/Core/Log.h"
-#include<GLFW/glfw3.h>
+#include<glad/glad.h>
 
 namespace Galileo {
 #define BIND_EVENT_FN(x) std::bind(&Application::x,this,std::placeholders::_1)
@@ -33,6 +33,11 @@ void Galileo::Application::Run()
 	{
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
+		for (Layer* layer:m_LayerStack)
+		{
+			layer->OnUpdate();
+		}
+
 		m_window->OnUpdate();
 	}
 }
@@ -42,6 +47,25 @@ void Galileo::Application::OnEvent(Event& e)
 	EventDispatcher dispatcher(e);
 	dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 	GL_CORE_TRACE("{0}",e);
+
+	for (auto it=m_LayerStack.end();it!=m_LayerStack.begin();)
+	{
+		(*--it)->OnEvent(e);
+		if (e.Handled)
+		{
+			break;
+		}
+	}
+}
+
+void Galileo::Application::PushLayer(Layer* layer)
+{
+	m_LayerStack.PushLayer(layer);
+}
+
+void Galileo::Application::PopLayer(Layer* layer)
+{
+	m_LayerStack.PopLayer(layer);
 }
 
 bool Galileo::Application::OnWindowClose(WindowCloseEvent& e)
