@@ -1,0 +1,6 @@
+[submodule "Galileo/vender/spdlog"]
+	path = Galileo/vender/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "Galileo/vendor/GLFW"]
+	path = Galileo/vendor/GLFW
+	url = https://github.com/TheCherno/glfw
