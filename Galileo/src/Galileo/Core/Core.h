@@ -2,11 +2,16 @@
 
 
 #ifdef GL_PLATFORM_WINDOWS
+#if GL_DYNAMIC_LINK
+
 	#ifdef GL_BUILD_DLL
 		#define GALILEO_API __declspec(dllexport)
 	#else
 		#define GALILEO_API __declspec(dllimport)
 	#endif // GL_BUILD_DLL
+#else
+	#define GALILEO_API
+#endif // GL_DYNAMIC_LINK
 #else
 	#error Galileo only support Window!
 #endif // GL_PLATFORM_WINDOWS
@@ -22,3 +27,4 @@
 #endif
 
 #define BIT(x) (1 << x)
+#define GL_BIND_EVENT_FN(fn) std::bind(&fn,this,std::placeholders::_1)

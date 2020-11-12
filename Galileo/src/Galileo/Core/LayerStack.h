@@ -4,7 +4,7 @@
 #include"Layer.h"
 
 namespace Galileo {
-	class LayerStack
+	class GALILEO_API LayerStack
 	{
 	public:
 		LayerStack();

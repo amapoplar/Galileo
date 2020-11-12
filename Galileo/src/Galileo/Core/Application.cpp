@@ -1,15 +1,17 @@
 #include"glpch.h"
 #include "Application.h"
-
 #include"Galileo/Core/Log.h"
 #include<glad/glad.h>
 
 namespace Galileo {
 #define BIND_EVENT_FN(x) std::bind(&Application::x,this,std::placeholders::_1)
+	Application* Application::s_Instance = nullptr;
 }
 
 Galileo::Application::Application()
 {
+	GL_CORE_ASSERT(!s_Instance, "Application already exists!");
+	s_Instance = this;
 	m_window = std::unique_ptr<Window>( Window::Create());
 	m_window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 }
@@ -20,6 +22,7 @@ Galileo::Application::~Application()
 
 void Galileo::Application::Run()
 {
+	
 	WindowResizeEvent e(1200, 720);
 	if (e.IsInCategory(EventCategoryApplication))
 	{
@@ -61,11 +64,13 @@ void Galileo::Application::OnEvent(Event& e)
 void Galileo::Application::PushLayer(Layer* layer)
 {
 	m_LayerStack.PushLayer(layer);
+	layer->OnAttach();
 }
 
-void Galileo::Application::PopLayer(Layer* layer)
+void Galileo::Application::PushOverlay(Layer* layer)
 {
-	m_LayerStack.PopLayer(layer);
+	m_LayerStack.PushOverlay(layer);
+	layer->OnAttach();
 }
 
 bool Galileo::Application::OnWindowClose(WindowCloseEvent& e)

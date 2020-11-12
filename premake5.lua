@@ -20,15 +20,17 @@ workspace "Galileo"
     include "Galileo/vendor/GLFW"
     include "Galileo/vendor/Glad"
     include "Galileo/vendor/imgui"
-
     project "Galileo"
 
         location "Galileo"
-        kind "SharedLib"
+        kind "StaticLib"
         language "C++"
+        cppdialect "C++17"
+        staticruntime "On"
 
         targetdir("bin/"..outputdir.."/%{prj.name}")
         objdir("bin-int/"..outputdir.."/%{prj.name}")
+        
         pchheader "glpch.h"
         pchsource "Galileo/src/glpch.cpp"
 
@@ -54,8 +56,6 @@ workspace "Galileo"
         }
 
         filter "system:windows"
-            cppdialect "C++17"
-            staticruntime "On"
             systemversion "latest"
 
             defines{
@@ -64,10 +64,6 @@ workspace "Galileo"
                 "GLFW_INCLUDE_NONE"
             }
 
-        	postbuildcommands{
-                
-                ("{COPY} %{cfg.buildtarget.relpath} \"../bin/"..outputdir.."/SandBox/\"")
-            }
 
         filter "configurations:Debug"
             defines "GL_DEBUG"
@@ -89,6 +85,10 @@ workspace "Galileo"
         location "SandBox"
         kind "ConsoleApp"
         language "C++"
+        cppdialect "C++17"
+        staticruntime "On"
+
+
         targetdir("bin/"..outputdir.."/%{prj.name}")
         objdir("bin-int/"..outputdir.."/%{prj.name}")
 
@@ -98,17 +98,17 @@ workspace "Galileo"
         }
     
         includedirs{
-            "%{wks.name}/vendor/spdlog/include",
+            "%{wks.location}/Galileo/vendor/spdlog/include",
+            "%{wks.location}/Galileo/vendor/imgui",
             "Galileo/src"
         }
 
         links{
-            "Galileo"
+            "Galileo",
+            "ImGui"
         }
     
         filter "system:windows"
-            cppdialect "C++17"
-            staticruntime "On"
             systemversion "latest"
     
             defines{

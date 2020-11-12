@@ -11,8 +11,8 @@ namespace Galileo {
 		uint32_t Height;
 
 		WindowProps(const std::string& title = "Galileo Engine",
-			uint32_t width = 960,
-			uint32_t height = 800)
+			uint32_t width = 1960,
+			uint32_t height = 1800)
 			: Title(title), Width(width), Height(height)
 		{
 		}

@@ -72,3 +72,11 @@ project "GLFW"
 	filter "configurations:Release"
 		runtime "Release"
 		optimize "on"
+
+	filter "configurations:Debug"
+		defines "GL_DEBUG"
+		symbols "On"
+
+	filter "configurations:Release"
+		defines "GL_RELEASE"
+		optimize "On"

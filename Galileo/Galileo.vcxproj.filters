@@ -85,12 +85,12 @@
     <ClCompile Include="src\Galileo\ImGui\ImGuiLayer.cpp">
       <Filter>Galileo\ImGui</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\imguiopengl.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\glpch.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\imguiopengl.cpp">
-      <Filter>Platform\OpenGL</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

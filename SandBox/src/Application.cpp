@@ -1,4 +1,5 @@
 #include<Galileo.h>
+
 class ExampleLayer:public Galileo::Layer
 {
 public:
@@ -28,6 +29,7 @@ private:
 Sandbox::Sandbox()
 {
 	PushLayer(new ExampleLayer());
+	PushLayer(new Galileo::ImGuiLayer());
 }
 
 Sandbox::~Sandbox()

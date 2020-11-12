@@ -16,12 +16,16 @@ namespace Galileo {
 		void OnEvent(Event& e);
 
 		void PushLayer(Layer* layer);
-		void PopLayer(Layer* layer);
+		void PushOverlay(Layer* layer);
+		inline static Application& Get() { return *s_Instance; }
+		inline Window& GetWindow() { return *m_window; }
 	private:
 		std::unique_ptr<Window> m_window;
 		bool m_Running =true;
 		bool OnWindowClose(WindowCloseEvent& e);
 		LayerStack m_LayerStack;
+		static Application* s_Instance;
+	
 	};
 	Application* CreateApplication();
 }
