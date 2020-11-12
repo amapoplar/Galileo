@@ -40,7 +40,6 @@ namespace Galileo {
 		m_Time = time;
 		static bool show = true;
 		ImGui::ShowDemoWindow(&show);
-
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	}

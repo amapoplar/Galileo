@@ -147,9 +147,12 @@
     <ClInclude Include="src\Galileo\Core\Application.h" />
     <ClInclude Include="src\Galileo\Core\Core.h" />
     <ClInclude Include="src\Galileo\Core\EntryPoint.h" />
+    <ClInclude Include="src\Galileo\Core\Input.h" />
+    <ClInclude Include="src\Galileo\Core\KeyCodes.h" />
     <ClInclude Include="src\Galileo\Core\Layer.h" />
     <ClInclude Include="src\Galileo\Core\LayerStack.h" />
     <ClInclude Include="src\Galileo\Core\Log.h" />
+    <ClInclude Include="src\Galileo\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\Galileo\Core\Window.h" />
     <ClInclude Include="src\Galileo\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Galileo\Events\Event.h" />
@@ -157,6 +160,7 @@
     <ClInclude Include="src\Galileo\Events\MouseEvent.h" />
     <ClInclude Include="src\Galileo\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Platform\OpenGL\imguiopengl.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\glpch.h" />
   </ItemGroup>
@@ -167,6 +171,7 @@
     <ClCompile Include="src\Galileo\Core\Log.cpp" />
     <ClCompile Include="src\Galileo\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\imguiopengl.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\glpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -186,4 +191,4 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-</Project>
+</Project> 

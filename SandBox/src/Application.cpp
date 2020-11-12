@@ -7,10 +7,19 @@ public:
 		:Layer("Example") {
 	};
 	void OnUpdate() override {
-		GL_INFO("ExampleLayer::Update");
 	}
 	void OnEvent(Galileo::Event& event) override {
-		GL_INFO("{0}",event);
+		//GL_INFO("{0}",event);
+		if (event.GetEventType()==Galileo::EventType::KeyPressed)
+		{
+			Galileo::KeyPressedEvent& e = (Galileo::KeyPressedEvent&)event;
+			GL_TRACE("{0}", (char)e.GetKeyCode());
+		}
+		if (Galileo::Input::IsKeyPressed(GL_KEY_TAB))
+		{
+			GL_INFO("The window size is {0},{1}", Galileo::Application::Get().GetWindow().GetWidth(),
+				Galileo::Application::Get().GetWindow().GetHeight());
+		}
 	}
 private:
 

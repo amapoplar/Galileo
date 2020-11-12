@@ -34,6 +34,12 @@
     <ClInclude Include="src\Galileo\Core\EntryPoint.h">
       <Filter>Galileo\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Galileo\Core\Input.h">
+      <Filter>Galileo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Galileo\Core\KeyCodes.h">
+      <Filter>Galileo\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\Galileo\Core\Layer.h">
       <Filter>Galileo\Core</Filter>
     </ClInclude>
@@ -41,6 +47,9 @@
       <Filter>Galileo\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Galileo\Core\Log.h">
+      <Filter>Galileo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Galileo\Core\MouseButtonCodes.h">
       <Filter>Galileo\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Galileo\Core\Window.h">
@@ -63,6 +72,9 @@
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\imguiopengl.h">
       <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
+      <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
@@ -87,6 +99,9 @@
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\imguiopengl.cpp">
       <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>

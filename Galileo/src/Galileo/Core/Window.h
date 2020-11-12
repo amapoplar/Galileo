@@ -11,8 +11,8 @@ namespace Galileo {
 		uint32_t Height;
 
 		WindowProps(const std::string& title = "Galileo Engine",
-			uint32_t width = 1960,
-			uint32_t height = 1800)
+			uint32_t width = 1200,
+			uint32_t height = 900)
 			: Title(title), Width(width), Height(height)
 		{
 		}
@@ -32,6 +32,8 @@ namespace Galileo {
 		virtual void SetEventCallback(const EventCallbackFn & callback) = 0;
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool IsVSync() const = 0;
+
+		virtual void* GetNativeWindow()const = 0;
 
 		static Window* Create(const WindowProps & props = WindowProps());
 	};

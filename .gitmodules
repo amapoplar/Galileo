@@ -7,4 +7,3 @@
 [submodule "Galileo/vendor/imgui"]
 	path = Galileo/vendor/imgui
 	url = https://github.com/TheCherno/imgui
-
