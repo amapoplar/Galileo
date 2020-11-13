@@ -1,6 +1,6 @@
 #pragma once
 #include"Galileo/Core/Window.h"
-#include<glad/glad.h>
+#include"Galileo/Renderer/GraphicsContext.h"
 #include<GLFW/glfw3.h>
 
 namespace Galileo {
@@ -26,6 +26,7 @@ namespace Galileo {
 		virtual void Init(const WindowProps& props);
 		virtual void Shutdown();
 		GLFWwindow* m_Window;
+		GraphicsContext* m_Context;
 	
 		struct WindowData
 		{

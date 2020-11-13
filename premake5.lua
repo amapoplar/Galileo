@@ -16,6 +16,7 @@ workspace "Galileo"
     includeDirs["GLFW"]="Galileo/vendor/GLFW/include"
     includeDirs["GLAD"]="Galileo/vendor/Glad/include"
     includeDirs["ImGui"]="Galileo/vendor/imgui"
+    includeDirs["glm"]= "Galileo/vendor/glm"
 
     include "Galileo/vendor/GLFW"
     include "Galileo/vendor/Glad"
@@ -38,6 +39,8 @@ workspace "Galileo"
         files{
             "%{prj.name}/src/**.h",
             "%{prj.name}/src/**.cpp",
+            "%{prj.name}/vendor/glm/glm/**.hpp",
+            "%{prj.name}/vendor/glm/glm/**.inl"
         }
 
         includedirs{
@@ -45,7 +48,9 @@ workspace "Galileo"
             "%{prj.name}/vendor/spdlog/include",
             "%{includeDirs.GLFW}",
             "%{includeDirs.GLAD}",
-            "%{includeDirs.ImGui}"
+            "%{includeDirs.ImGui}",
+            "%{includeDirs.glm}"
+
         }
 
         links{
@@ -94,12 +99,13 @@ workspace "Galileo"
 
         files{
             "%{prj.name}/src/**.h",
-            "%{prj.name}/src/**.cpp",
+            "%{prj.name}/src/**.cpp"
         }
     
         includedirs{
             "%{wks.location}/Galileo/vendor/spdlog/include",
-            "%{wks.location}/Galileo/vendor/imgui",
+            "%{wks.location}/Galileo/vendor",
+            "%{includeDirs.glm}",
             "Galileo/src"
         }
 

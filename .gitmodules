@@ -7,3 +7,6 @@
 [submodule "Galileo/vendor/imgui"]
 	path = Galileo/vendor/imgui
 	url = https://github.com/TheCherno/imgui
+[submodule "Galileo\\vendor\\glm"]
+	path = Galileo\\vendor\\glm
+	url = https://github.com/g-truc/glm/

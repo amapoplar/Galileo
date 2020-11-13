@@ -72,4 +72,6 @@ namespace Galileo {
 	{
 		return os << e.ToString();
 	}
+
+
 }

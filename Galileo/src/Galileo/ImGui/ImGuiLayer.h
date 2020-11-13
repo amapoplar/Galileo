@@ -1,8 +1,6 @@
 #pragma once
 #include"Galileo/Core/Layer.h"
 
-#include"Platform/OpenGL/imguiopengl.h"
-#include"Galileo/Core/Application.h"
 #include"Galileo/Events/KeyEvent.h"
 #include"Galileo/Events/MouseEvent.h"
 
@@ -13,23 +11,15 @@ namespace Galileo {
 	{
 	public:
 		ImGuiLayer();
-		~ImGuiLayer();
 
-		void OnAttach();
-		void OnDetach(); 
-		void OnUpdate();
-		void OnEvent(Event& event);
+		virtual void OnAttach()override;
+		virtual void OnDetach()override; 
+		virtual void OnImGuiRender();
+	
+		void Begin();
+		void End();
+
 	private:
-		bool OnMouseButtonPressEvent(MouseButtonPressedEvent& event);
-		bool OnMouseButtonReleasedEvent(MouseButtonReleasedEvent& event);
-		bool OnMouseMoveEvent(MouseMoveEvent& event);
-		bool OnMouseScrolledEvent(MouseScrolledEvent& event);
-		
-		bool OnKeyPressedEvent(KeyPressedEvent& event);
-		bool OnKeyReleasedEvent(KeyReleasedEvent& event);
-		
-		bool OnKeyTypeEvent(KeyTypedEvent& event);
-		bool OnWindowResizeEvent(WindowResizeEvent& event);
 
 		float m_Time = 0.0f;
 	};
