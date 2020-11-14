@@ -1328,6 +1328,9 @@
     </ClInclude>
     <ClInclude Include="src\Galileo\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Galileo\Renderer\Shader.h" />
+    <ClInclude Include="src\Galileo\Renderer\Buffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Galileo\Core\Application.cpp">
@@ -1359,5 +1362,7 @@
     </ClCompile>
     <ClCompile Include="src\Galileo\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Galileo\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Galileo\Renderer\Buffer.cpp" />
   </ItemGroup>
 </Project>

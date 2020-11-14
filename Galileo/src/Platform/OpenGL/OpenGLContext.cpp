@@ -11,7 +11,12 @@ namespace Galileo {
 	{
 		glfwMakeContextCurrent(m_windowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		
 		GL_CORE_ASSERT(status, "Failed to initialize GLAD!");
+		GL_CORE_INFO("OpenGL Infomation : ");
+		GL_CORE_INFO("	Vendor:{0}", glGetString(GL_VENDOR));
+		GL_CORE_INFO("	Renderer:{0}", glGetString(GL_RENDERER));
+		GL_CORE_INFO("	Version:{0}", glGetString(GL_VERSION));
 	}
 	void OpenGLContext::SwapBuffers()
 	{
